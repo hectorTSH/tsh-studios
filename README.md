@@ -9,8 +9,10 @@ products, personalized merch). Logo SVGs and product photos in `assets/`.
 ## Live deployment (2026-11-08)
 
 Project **tsh-studios** (prj_YudMMYFhTuHJyOkZm9K5fv0kaVUQ) in Hector's
-Vercel account, production: **https://tsh-studios.vercel.app** (no custom
-domain yet, by Hector's call).
+Vercel account, production: **https://tsh-studios.vercel.app**. Custom
+domain **tshstudios.com** was bought on Porkbun and attached to the project
+on 2026-11-08 (www 308-redirects to the apex); it serves the site once
+Vercel's domain verification finishes propagating.
 
 The project is **git-connected to this repository** (hectorTSH/tsh-studios,
 production branch `main`): every push to main auto-deploys to production.
@@ -21,21 +23,25 @@ contents as command arguments, so keep individual text files under ~90 KB
 (the product photos are web-compressed; full-res originals live in Hector's
 photo files; photos reached the repo via a one-time web upload).
 
-## Attach tshstudios.com (when Hector buys it at Porkbun)
+## tshstudios.com (attached 2026-11-08)
 
-1. In the Vercel project: Settings → Domains → add `tshstudios.com` and
-   `www.tshstudios.com`.
-2. At Porkbun (Domain → DNS), point the domain at Vercel using the exact
-   values Vercel shows on that Domains screen — typically:
-   - A record, host `@` → `76.76.21.21`
-   - CNAME, host `www` → `cname.vercel-dns.com`
-   If Vercel displays different values, Vercel's win.
-3. Wait for the SSL certificate to issue (automatic, a few minutes).
+1. Vercel project: Settings → Domains → `tshstudios.com` added as Production,
+   `www.tshstudios.com` added with a 308 redirect to the apex. Done.
+2. Porkbun DNS points the domain at Vercel with the values Vercel's Domains
+   page recommends for this project:
+   - A record, host `@` → `216.150.1.1`
+   - CNAME, host `www` → `6e6b488ab68bad1d.vercel-dns-016.com`
+   - Plus the two `_vercel` TXT verification records Vercel issued.
+   (The legacy pair `76.76.21.21` / `cname.vercel-dns.com` also works.)
+3. SSL certificate issues automatically once verification completes.
+   The same Porkbun zone also carries the Google Workspace records for
+   @tshstudios.com mail (Google MX/SPF/DKIM, google-site-verification) —
+   don't disturb them when editing the Vercel records.
 
 ## Notes
 
-- Contact buttons use `hello@tshstudios.com` — live once the Google Workspace
-  for tshstudios.com exists.
+- Contact buttons use `hello@tshstudios.com` — live since 2026-11-08
+  (Google Workspace for tshstudios.com is set up and Gmail is activated).
 - Storefront CTAs are launch-list mode until the Etsy shop opens; swap the
   hero/contact buttons to the Etsy URL at launch.
 - The rack line is branded **Fleetframe** (Hector's pick, 2026-11-08, after
