@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TSH Products — Fitness, Clinic &amp; Personalized Prints | TSH Studios</title>
+<meta name="description" content="The Time Strong Health shelf at TSH Studios: fitness products, clinic products, and personalized merch printed for TSH clients, their caregivers, and partner clinics.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0c; --panel:#141416; --panel2:#1b1b1e; --line:#26262b;
+    --text:#f5f5f4; --muted:#a7a7ae; --orange:#f7931a; --orange-dark:#c77408;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.15;letter-spacing:-0.01em}
+  a{color:var(--orange);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-block;background:var(--orange);color:#111;font-weight:600;padding:12px 22px;border-radius:10px;border:1px solid var(--orange);cursor:pointer;font-size:15px}
+  .btn:hover{background:var(--orange-dark);border-color:var(--orange-dark);text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--text);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--orange);color:var(--orange)}
+  .kicker{color:var(--orange);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin-bottom:12px}
+  section{padding:84px 0}
+  section h2{font-size:34px;margin-bottom:14px}
+  section .lede{color:var(--muted);max-width:640px;margin-bottom:40px;font-size:17px}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:12px;color:var(--text)}
+  .logo:hover{text-decoration:none}
+  .logo img{width:44px;height:44px;display:block}
+  .logo .word{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:.02em;line-height:1.1}
+  .logo .word span{color:var(--orange)}
+  .logo small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+  .nav nav{display:flex;gap:26px;flex-wrap:wrap}
+  .nav nav a{color:var(--muted);font-size:14px;font-weight:500}
+  .nav nav a:hover{color:var(--text);text-decoration:none}
+  .nav nav a.here{color:var(--orange)}
+
+  .hero{padding:72px 0 84px;background:
+    radial-gradient(900px 420px at 85% -10%, rgba(247,147,26,.14), transparent 60%),
+    var(--bg)}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:52px;margin-bottom:18px}
+  .hero h1 em{font-style:normal;color:var(--orange)}
+  .hero p{color:var(--muted);font-size:18px;margin-bottom:28px;max-width:520px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero figure{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel)}
+  .hero figure img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero figcaption{padding:12px 16px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+  .hero .logocard{background:radial-gradient(600px 300px at 50% 0%, rgba(247,147,26,.10), transparent 65%),var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:38px 30px 26px;text-align:center}
+  .hero .logocard img{width:100%;max-width:430px;margin:0 auto;display:block}
+  .hero .logocard p{font-size:13.5px;color:var(--muted);margin:20px auto 0;max-width:400px}
+  .badge{display:inline-block;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:999px;padding:6px 14px;font-size:13px;margin-bottom:22px}
+  .badge b{color:var(--orange);font-weight:600}
+
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:26px;padding-bottom:26px}
+  .strip div b{display:block;font-family:'Space Grotesk',sans-serif;font-size:16px}
+  .strip div span{color:var(--muted);font-size:13px}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:14.5px;flex:1}
+  .card .price{font-family:'Space Grotesk',sans-serif;font-size:28px;margin-top:18px}
+  .card .price small{font-size:13px;color:var(--muted);font-family:'Inter',sans-serif}
+  .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#111;background:var(--orange);border-radius:6px;padding:3px 8px;margin-bottom:14px}
+  .card .tag.plain{background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+  .card .more{margin-top:16px;font-weight:600;font-size:14.5px}
+  .photo-band{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;margin-bottom:56px}
+  .photo-band figure{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .photo-band img{width:100%;display:block}
+  .photo-band figcaption{padding:12px 16px;font-size:13px;color:var(--muted);background:var(--panel);border-top:1px solid var(--line)}
+
+  .builder{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px;margin-top:44px}
+  .builder h3{font-size:21px;margin-bottom:6px}
+  .builder>p{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+  .brow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+  .brow label{font-weight:500;font-size:15px}
+  .brow label small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+  .stepper{display:flex;align-items:center;gap:10px}
+  .stepper button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--text);font-size:18px;cursor:pointer}
+  .stepper button:hover{border-color:var(--orange);color:var(--orange)}
+  .stepper output{min-width:26px;text-align:center;font-weight:600}
+  .brow .each{color:var(--muted);font-size:13.5px;min-width:120px;text-align:right}
+  .btotal{display:flex;justify-content:space-between;align-items:baseline;padding-top:20px;margin-top:8px;border-top:2px solid var(--orange);flex-wrap:wrap;gap:10px}
+  .btotal .sum{font-family:'Space Grotesk',sans-serif;font-size:32px}
+  .btotal .pledge{color:var(--muted);font-size:13.5px}
+  .btotal .pledge b{color:var(--orange)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .panel h3{font-size:21px;margin-bottom:10px}
+  .panel p,.panel li{color:var(--muted);font-size:15px}
+  .panel ul{margin:14px 0 0 18px}
+  .panel li{margin-bottom:8px}
+  .panel li b{color:var(--text)}
+
+  .serve{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .serve .card h3{font-size:17.5px}
+
+  .pledge{background:linear-gradient(180deg, rgba(247,147,26,.09), rgba(247,147,26,.02));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .pledge .big{font-family:'Space Grotesk',sans-serif;font-size:64px;color:var(--orange);line-height:1}
+  .pledge .grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+  .pledge p{color:var(--muted);max-width:620px}
+  .pledge p b{color:var(--text)}
+
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .faq div{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .faq h3{font-size:16.5px;margin-bottom:8px}
+  .faq p{color:var(--muted);font-size:14.5px}
+
+  .contact{text-align:center}
+  .contact h2{font-size:38px}
+  .contact p{color:var(--muted);max-width:560px;margin:0 auto 28px}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .flogo{display:flex;align-items:center;gap:10px}
+  footer .flogo img{width:30px;height:30px}
+
+  @media (max-width:900px){
+    .hero .grid,.photo-band,.pledge .grid{grid-template-columns:1fr}
+    .cards,.split,.faq,.serve{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:38px}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><img src="assets/logo-emblem.svg" alt="TSH Studios faceted turtle emblem"><span><span class="word">TSH<span>·</span>STUDIOS</span><small>3D Printing Studio</small></span></a>
+    <nav>
+      <a href="index.html#daily">Daily Living</a>
+      <a href="tsh-products.html" class="here">TSH Products</a>
+      <a href="index.html#racks">Fleetframe</a>
+      <a href="index.html#files">Print Files</a>
+      <a href="index.html#custom">Custom</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="btn" href="#contact">Store Opening Soon</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- PAGE HERO -->
+  <div class="hero">
+    <div class="wrap grid">
+      <div>
+        <div class="badge">From <b>Time Strong Health</b> — you're in the right place</div>
+        <h1>The TSH shelf, <em>printed to order.</em></h1>
+        <p>This is the page the TSH Studios tab on timestronghealth.com points to: the printed side of the practice. Products for clients working on strength, balance, and daily independence — and for the caregivers and clinics standing behind them.</p>
+        <div class="cta">
+          <a class="btn" href="#fitness">Fitness Products</a>
+          <a class="btn ghost" href="#clinics">Clinic Products</a>
+        </div>
+      </div>
+      <div class="logocard">
+        <img src="assets/logo-lockup.svg" alt="TSH Studios logo — a faceted geometric turtle above the TSH Studios wordmark">
+        <p>Every TSH product carries the faceted turtle, debossed into the print — the mark of the studio and the mascot of Time Strong Health.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FITNESS -->
+  <section id="fitness">
+    <div class="wrap">
+      <div class="kicker">For Clients &amp; Caregivers</div>
+      <h2>Fitness products for the work between sessions</h2>
+      <p class="lede">A home program only works if the tools work at home. These are designed with the same clinical eye as the sessions themselves — for fine motor control, balance, visual scanning, and the everyday tasks that add up to independence.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="tag plain">Fine motor control</span>
+          <h3>Big-Grip Utensil Handles</h3>
+          <p>Oversized, secure handles that turn standard utensils into tools a weak or unsteady grip can hold onto.</p>
+          <div class="price">$29 <small>/ set</small></div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Fine motor control</span>
+          <h3>Key &amp; Zipper Helpers</h3>
+          <p>Turning a key and pulling a zipper are small tasks until they're not. These make them small again.</p>
+          <div class="price">$22 <small>/ set</small></div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Everyday tasks</span>
+          <h3>Pill-Bottle Opener</h3>
+          <p>Leverage, not strength. Opens child-resistant caps without the wrestling match.</p>
+          <div class="price">$18</div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Everyday tasks</span>
+          <h3>Jar Grip Opener</h3>
+          <p>A grip that bites back. Breaks the seal on stubborn lids with a fraction of the hand strength.</p>
+          <div class="price">$24</div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Connection</span>
+          <h3>Phone &amp; Tablet Stand</h3>
+          <p>Steady, angled, one-hand friendly — for video calls with family and telehealth check-ins alike.</p>
+          <div class="price">$39</div>
+        </div>
+        <div class="card">
+          <span class="tag">In development</span>
+          <h3>Balance &amp; Visual Scanning Aids</h3>
+          <p>Home-practice tools for balance work and visual scanning, designed to slot into a TSH program. First designs are in testing with the studio's clinical eye on every iteration.</p>
+          <div class="price"><a href="#contact" style="font-size:17px">Get launch updates →</a></div>
+        </div>
+      </div>
+      <p style="color:var(--muted);margin-top:22px;font-size:14.5px">Caregivers: most of this shelf does double duty — the same grips, openers, and stands that help a client also protect the hands and back of the person helping them. Questions about what fits your situation? <a href="mailto:hello@tshstudios.com?subject=TSH%20product%20question">Ask the studio →</a></p>
+    </div>
+  </section>
+
+  <!-- CLINICS -->
+  <section id="clinics" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="kicker">For Clinics &amp; Facilities</div>
+      <h2>Clinic products, without the catalog markup</h2>
+      <p class="lede">Clinics and care facilities stock the same aids from medical catalogs at medical-catalog prices. We print them to order — and when one breaks or walks away, the reprint is a file we already have, not a purchase order.</p>
+      <div class="split">
+        <div class="panel">
+          <h3>Lending-Shelf Bundles</h3>
+          <p>The daily-living catalog as a stocked shelf: grips, openers, and helpers in the quantities a lending library actually turns over.</p>
+          <ul>
+            <li>Bundle pricing across the full daily-living line</li>
+            <li>Reprints of any piece on file — no re-ordering friction</li>
+            <li>Your clinic's name plate on the bundle, if you want it</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Session-Ready &amp; Custom</h3>
+          <p>Holders, stands, and one-off aids for the client whose need doesn't exist in a catalog — because it hasn't been printed yet.</p>
+          <ul>
+            <li>Volume pricing for facilities and practices</li>
+            <li>Custom aids designed with clinician input</li>
+            <li><a href="mailto:hello@tshstudios.com?subject=Clinic%20bundle%20sheet%20request">Ask for the bundle sheet →</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section id="merch" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="kicker">Personalized Merch</div>
+      <h2>The turtle, made personal</h2>
+      <p class="lede">The faceted turtle is Time Strong Health's mascot — a reminder that strong is a direction, not a deadline. The studio prints it into gifts and gear for clients, caregivers, and the people cheering them on.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Desk Turtle</h3>
+          <p>The mascot as a full-body print, tree pose and all — for the desk of someone doing the work, or the person who got them there.</p>
+          <div class="price"><a href="#contact" style="font-size:17px">Launching with the store →</a></div>
+        </div>
+        <div class="card">
+          <h3>Name Plates &amp; Personalized Pieces</h3>
+          <p>Names, milestones, and inside jokes, printed into plates and pieces — including Fleetframe modules with your name or logo on the plate.</p>
+          <div class="price"><a href="index.html#custom" style="font-size:17px">See custom work →</a></div>
+        </div>
+        <div class="card">
+          <h3>Caregiver Thank-Yous</h3>
+          <p>Small, personal prints for the person who shows up every day. The most under-thanked job in healthcare deserves better than a card.</p>
+          <div class="price"><a href="#contact" style="font-size:17px">Launching with the store →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="kicker">Launch List</div>
+      <h2>The store opens soon. Be first in line.</h2>
+      <p>One email when the storefront goes live. TSH clients and caregivers hear about new daily-living designs first — that's who they're for.</p>
+      <a class="btn" href="mailto:hello@tshstudios.com?subject=Add%20me%20to%20the%20TSH%20Studios%20launch%20list">Join the launch list</a>
+      <a class="btn ghost" href="https://www.timestronghealth.com" style="margin-left:10px">Back to Time Strong Health</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="flogo"><img src="assets/logo-emblem.svg" alt=""><span>© 2026 TSH Studios · A Time Strong Health company · Atlanta, GA</span></div>
+    <div>Fitness &amp; wellness products — not medical devices. For services, visit <a href="https://www.timestronghealth.com">timestronghealth.com</a>.</div>
+  </div>
+</footer>
+
+</body>
+</html>

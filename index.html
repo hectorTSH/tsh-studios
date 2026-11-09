@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TSH Studios — Printed Tools for Daily Life &amp; Local AI Rigs</title>
+<meta name="description" content="TSH Studios is the 3D printing studio of Time Strong Health in Atlanta, GA. Daily activity assistance products for clients and caregivers, clinic products, personalized merch, and Fleetframe modular racks for DGX Spark and Mac AI setups. Printed to order in PETG.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0c; --panel:#141416; --panel2:#1b1b1e; --line:#26262b;
+    --text:#f5f5f4; --muted:#a7a7ae; --orange:#f7931a; --orange-dark:#c77408;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.15;letter-spacing:-0.01em}
+  a{color:var(--orange);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-block;background:var(--orange);color:#111;font-weight:600;padding:12px 22px;border-radius:10px;border:1px solid var(--orange);cursor:pointer;font-size:15px}
+  .btn:hover{background:var(--orange-dark);border-color:var(--orange-dark);text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--text);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--orange);color:var(--orange)}
+  .kicker{color:var(--orange);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin-bottom:12px}
+  section{padding:84px 0}
+  section h2{font-size:34px;margin-bottom:14px}
+  section .lede{color:var(--muted);max-width:640px;margin-bottom:40px;font-size:17px}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:12px;color:var(--text)}
+  .logo:hover{text-decoration:none}
+  .logo img{width:44px;height:44px;display:block}
+  .logo .word{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:.02em;line-height:1.1}
+  .logo .word span{color:var(--orange)}
+  .logo small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+  .nav nav{display:flex;gap:26px;flex-wrap:wrap}
+  .nav nav a{color:var(--muted);font-size:14px;font-weight:500}
+  .nav nav a:hover{color:var(--text);text-decoration:none}
+  .nav nav a.here{color:var(--orange)}
+
+  .hero{padding:72px 0 84px;background:
+    radial-gradient(900px 420px at 85% -10%, rgba(247,147,26,.14), transparent 60%),
+    var(--bg)}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:52px;margin-bottom:18px}
+  .hero h1 em{font-style:normal;color:var(--orange)}
+  .hero p{color:var(--muted);font-size:18px;margin-bottom:28px;max-width:520px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero figure{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel)}
+  .hero figure img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero figcaption{padding:12px 16px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+  .hero .logocard{background:radial-gradient(600px 300px at 50% 0%, rgba(247,147,26,.10), transparent 65%),var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:38px 30px 26px;text-align:center}
+  .hero .logocard img{width:100%;max-width:430px;margin:0 auto;display:block}
+  .hero .logocard p{font-size:13.5px;color:var(--muted);margin:20px auto 0;max-width:400px}
+  .badge{display:inline-block;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:999px;padding:6px 14px;font-size:13px;margin-bottom:22px}
+  .badge b{color:var(--orange);font-weight:600}
+
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:26px;padding-bottom:26px}
+  .strip div b{display:block;font-family:'Space Grotesk',sans-serif;font-size:16px}
+  .strip div span{color:var(--muted);font-size:13px}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:14.5px;flex:1}
+  .card .price{font-family:'Space Grotesk',sans-serif;font-size:28px;margin-top:18px}
+  .card .price small{font-size:13px;color:var(--muted);font-family:'Inter',sans-serif}
+  .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#111;background:var(--orange);border-radius:6px;padding:3px 8px;margin-bottom:14px}
+  .card .tag.plain{background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+  .card .more{margin-top:16px;font-weight:600;font-size:14.5px}
+  .photo-band{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;margin-bottom:56px}
+  .photo-band figure{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .photo-band img{width:100%;display:block}
+  .photo-band figcaption{padding:12px 16px;font-size:13px;color:var(--muted);background:var(--panel);border-top:1px solid var(--line)}
+
+  .builder{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px;margin-top:44px}
+  .builder h3{font-size:21px;margin-bottom:6px}
+  .builder>p{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+  .brow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+  .brow label{font-weight:500;font-size:15px}
+  .brow label small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+  .stepper{display:flex;align-items:center;gap:10px}
+  .stepper button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--text);font-size:18px;cursor:pointer}
+  .stepper button:hover{border-color:var(--orange);color:var(--orange)}
+  .stepper output{min-width:26px;text-align:center;font-weight:600}
+  .brow .each{color:var(--muted);font-size:13.5px;min-width:120px;text-align:right}
+  .btotal{display:flex;justify-content:space-between;align-items:baseline;padding-top:20px;margin-top:8px;border-top:2px solid var(--orange);flex-wrap:wrap;gap:10px}
+  .btotal .sum{font-family:'Space Grotesk',sans-serif;font-size:32px}
+  .btotal .pledge{color:var(--muted);font-size:13.5px}
+  .btotal .pledge b{color:var(--orange)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .panel h3{font-size:21px;margin-bottom:10px}
+  .panel p,.panel li{color:var(--muted);font-size:15px}
+  .panel ul{margin:14px 0 0 18px}
+  .panel li{margin-bottom:8px}
+  .panel li b{color:var(--text)}
+
+  .serve{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .serve .card h3{font-size:17.5px}
+
+  .pledge{background:linear-gradient(180deg, rgba(247,147,26,.09), rgba(247,147,26,.02));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .pledge .big{font-family:'Space Grotesk',sans-serif;font-size:64px;color:var(--orange);line-height:1}
+  .pledge .grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+  .pledge p{color:var(--muted);max-width:620px}
+  .pledge p b{color:var(--text)}
+
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .faq div{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .faq h3{font-size:16.5px;margin-bottom:8px}
+  .faq p{color:var(--muted);font-size:14.5px}
+
+  .contact{text-align:center}
+  .contact h2{font-size:38px}
+  .contact p{color:var(--muted);max-width:560px;margin:0 auto 28px}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .flogo{display:flex;align-items:center;gap:10px}
+  footer .flogo img{width:30px;height:30px}
+
+  @media (max-width:900px){
+    .hero .grid,.photo-band,.pledge .grid{grid-template-columns:1fr}
+    .cards,.split,.faq,.serve{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:38px}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><img src="assets/logo-emblem.svg" alt="TSH Studios faceted turtle emblem"><span><span class="word">TSH<span>·</span>STUDIOS</span><small>3D Printing Studio</small></span></a>
+    <nav>
+      <a href="#daily">Daily Living</a>
+      <a href="tsh-products.html">TSH Products</a>
+      <a href="#racks">Fleetframe</a>
+      <a href="#files">Print Files</a>
+      <a href="#custom">Custom</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn" href="#contact">Store Opening Soon</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap grid">
+      <div>
+        <div class="badge">The fabrication arm of <b>Time Strong Health</b></div>
+        <h1>Printed tools for <em>stronger days</em> and serious machines.</h1>
+        <p>TSH Studios is where Time Strong Health's clinical know-how meets a print farm. We design and print daily activity assistance products for clients and caregivers, clinic gear, personalized merch, and Fleetframe racks for local AI rigs. Printed to order in Atlanta, in PETG that outlasts the job.</p>
+        <div class="cta">
+          <a class="btn" href="tsh-products.html">Shop TSH Products</a>
+          <a class="btn ghost" href="#racks">Shop Fleetframe Racks</a>
+        </div>
+      </div>
+      <div class="logocard">
+        <img src="assets/logo-lockup.svg" alt="TSH Studios logo — a faceted geometric turtle above the TSH Studios wordmark">
+        <p>The faceted turtle: Time Strong Health's mascot, rebuilt as the studio's mark. It ships debossed into everything we print.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST STRIP -->
+  <div class="strip">
+    <div class="wrap">
+      <div><b>Printed in PETG</b><span>Not PLA. Heat-stable, tough, no creep under load</span></div>
+      <div><b>Clinician-designed</b><span>Daily-living tools from 15+ years of clinical work</span></div>
+      <div><b>Print-to-order</b><span>Small-batch, made in Atlanta, GA</span></div>
+      <div><b>5% gives back</b><span>Of every sale, to open-source local AI</span></div>
+    </div>
+  </div>
+
+  <!-- WHO WE SERVE -->
+  <section id="serve">
+    <div class="wrap">
+      <div class="kicker">Who We Serve</div>
+      <h2>Support for clients, caregivers, clinics — and the people building local AI</h2>
+      <p class="lede">Time Strong Health promotes the kind of health that keeps you strong until the end of time. The studio exists to put physical tools behind that promise, and to rack the machines doing the new work.</p>
+      <div class="serve">
+        <div class="card">
+          <h3>For clients</h3>
+          <p>Daily activity assistance designed around real hands and real homes: grips, openers, and helpers for fine motor control, balance, and visual scanning.</p>
+        </div>
+        <div class="card">
+          <h3>For caregivers</h3>
+          <p>Tools that make helping easier and safer — for the person you care for, and for your own body while you do it.</p>
+        </div>
+        <div class="card">
+          <h3>For clinics</h3>
+          <p>Lending-shelf bundles, session-ready aids, and durable clinic gear, printed to order with volume pricing.</p>
+        </div>
+        <div class="card">
+          <h3>For AI builders</h3>
+          <p>Fleetframe modular racks for DGX Spark, Mac Studio, and Mac mini rigs — the system our own five-Spark fleet runs in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANES -->
+  <section id="lanes" style="padding-top:0">
+    <div class="wrap">
+      <div class="kicker">The Studio</div>
+      <h2>Three lanes, one workbench</h2>
+      <p class="lede">Everything below is designed the same way: a real problem, iterated prints — two to four failed ones per part — until it earns its place.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="tag">Lane One</span>
+          <h3>Daily Activity Assistance</h3>
+          <p>Functional aids for hands that don't grip like they used to: fine motor helpers, balance support, visual scanning tools, and everyday-task gear for clients and caregivers.</p>
+          <a class="more" href="#daily">See the daily living lane →</a>
+        </div>
+        <div class="card">
+          <span class="tag">Lane Two</span>
+          <h3>TSH Products</h3>
+          <p>The Time Strong Health shelf: fitness products, clinic products, and personalized merch — printed for the people TSH serves, and the people who care for them.</p>
+          <a class="more" href="tsh-products.html">Visit the TSH Products page →</a>
+        </div>
+        <div class="card">
+          <span class="tag">Lane Three</span>
+          <h3>Fleetframe Racks</h3>
+          <p>Modular racks for local AI hardware. One interlocking system for every machine you add — Spark, Studio, mini — with honeycomb covers and a drive dock.</p>
+          <a class="more" href="#racks">See Fleetframe →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAILY LIVING -->
+  <section id="daily" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="kicker">Lane One — Daily Living</div>
+      <h2>The clinician's workbench.</h2>
+      <p class="lede">TSH Studios is the fabrication arm of a physical therapist's practice, and it shows in this lane: functional aids designed with fifteen years of clinical work behind them, organized by the job they do — not by what they're made of. No mass-produced catalog can say that.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="tag plain">Fine motor control</span>
+          <h3>Big-Grip Utensil Handles</h3>
+          <p>Oversized, secure handles that turn standard utensils into tools a weak or unsteady grip can hold onto.</p>
+          <div class="price">$29 <small>/ set</small></div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Fine motor control</span>
+          <h3>Key &amp; Zipper Helpers</h3>
+          <p>Turning a key and pulling a zipper are small tasks until they're not. These make them small again.</p>
+          <div class="price">$22 <small>/ set</small></div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Everyday tasks</span>
+          <h3>Pill-Bottle Opener</h3>
+          <p>Leverage, not strength. Opens child-resistant caps without the wrestling match.</p>
+          <div class="price">$18</div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Everyday tasks</span>
+          <h3>Jar Grip Opener</h3>
+          <p>A grip that bites back. Breaks the seal on stubborn lids with a fraction of the hand strength.</p>
+          <div class="price">$24</div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Connection</span>
+          <h3>Phone &amp; Tablet Stand</h3>
+          <p>Steady, angled, one-hand friendly — for video calls with family and telehealth check-ins alike.</p>
+          <div class="price">$39</div>
+        </div>
+        <div class="card">
+          <span class="tag">In development</span>
+          <h3>Balance &amp; Visual Scanning</h3>
+          <p>The next workbench projects: balance support tools and visual scanning aids for home practice between sessions. First designs are in testing now.</p>
+          <div class="price"><a href="tsh-products.html" style="font-size:17px">Follow on the TSH Products page →</a></div>
+        </div>
+      </div>
+      <p style="color:var(--muted);margin-top:22px;font-size:14.5px">Buying for a clinic or care facility? Daily-living bundles and volume pricing live on the <a href="tsh-products.html#clinics">TSH Products page</a>.</p>
+    </div>
+  </section>
+
+  <!-- RACKS -->
+  <section id="racks" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="kicker">Lane Three — Fleetframe · Local AI Hardware</div>
+      <h2>Fleetframe. One system for every machine you add.</h2>
+      <p class="lede">Cradles dead-end. Fleetframe grows: each module interlocks with the next, so the stack you start today is the tower you run next year. Diamond-lattice sides keep air moving, honeycomb covers finish the top, and everything is printed in black PETG — with a carbon-fiber PETG-CF upgrade if you want the premium rung.</p>
+
+      <div class="photo-band">
+        <figure>
+          <img src="assets/hero.jpg" alt="A five-high DGX Spark tower and a two-Mac-Studio stack in TSH Studios modular racks, with honeycomb top covers">
+          <figcaption>The studio's own fleet: five DGX Sparks and two Mac Studios, stacked in the racks we sell. We run what we print.</figcaption>
+        </figure>
+        <div>
+          <h3 style="font-size:24px;margin-bottom:12px">Built for how clusters actually grow</h3>
+          <p style="color:var(--muted);margin-bottom:14px">Most people buy one Spark, then a second, then suddenly there's a five-node tower on the desk and a switch balanced on top. Our modules are priced for that path: buy one to start, and when your fleet grows, modules get cheaper — <b style="color:var(--text)">$35 each on four or more Spark modules</b>, every day, no coupon games.</p>
+          <p style="color:var(--muted)">Compare the alternative: machined aluminum two-Spark stands run $350+ and sit on deposit waitlists. A full four-Spark tower here is $169, printed to order.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <span class="tag">Volume anchor</span>
+          <h3>DGX Spark Module</h3>
+          <p>One Spark, cradled and ventilated, ready to interlock with the next. The module the whole system is built around.</p>
+          <div class="price">$39 <small>· $35 each at 4+</small></div>
+        </div>
+        <div class="card">
+          <span class="tag plain">No one else makes this</span>
+          <h3>Mac Studio Module</h3>
+          <p>The only modular stacking system for Mac Studio. Turn two Studios into one tidy tower instead of a desk-wide spread.</p>
+          <div class="price">$54</div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Start small</span>
+          <h3>Mac mini Module</h3>
+          <p>Same system, mini footprint. Built for EXO-style clusters and tidy homelab nodes.</p>
+          <div class="price">$34</div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Add-on</span>
+          <h3>Drive Dock Module</h3>
+          <p>A home for the external drive that's currently sliding around your desk. Docks on the stack, stays put.</p>
+          <div class="price">$25</div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Finishing piece</span>
+          <h3>Honeycomb Top Covers</h3>
+          <p>The signature top: ventilated, stackable-on, and the thing that makes a tower look finished instead of assembled.</p>
+          <div class="price">$24 <small>Spark</small> · $29 <small>Studio</small></div>
+        </div>
+        <div class="card">
+          <span class="tag plain">Upgrade</span>
+          <h3>PETG-CF Finish</h3>
+          <p>Carbon-fiber PETG on any module: stiffer, more dimensionally stable, and a matte finish that hides layer lines. Looks machined.</p>
+          <div class="price">+$10 <small>per module</small></div>
+        </div>
+      </div>
+
+      <div class="cards" style="margin-top:20px">
+        <div class="card">
+          <span class="tag">Bundle</span>
+          <h3>Spark Duo</h3>
+          <p>Two Spark modules + honeycomb cover. The two-node cluster starter kit.</p>
+          <div class="price">$99</div>
+        </div>
+        <div class="card">
+          <span class="tag">Flagship</span>
+          <h3>Spark Quad</h3>
+          <p>Four Spark modules + honeycomb cover. A full tower for $16k+ of compute — for less than half the price of an aluminum stand for two.</p>
+          <div class="price">$169</div>
+        </div>
+        <div class="card">
+          <span class="tag">Bundle</span>
+          <h3>Studio Duo</h3>
+          <p>Two Studio modules + cover + drive dock. The complete Mac stack, finished.</p>
+          <div class="price">$149</div>
+        </div>
+      </div>
+
+      <!-- STACK BUILDER -->
+      <div class="builder" id="builder">
+        <h3>Build your Fleetframe stack</h3>
+        <p>Tap together your setup and see the total. Fleet pricing applies automatically: Spark modules drop to $35 each at four or more.</p>
+        <div id="builder-rows"></div>
+        <div class="brow">
+          <label>PETG-CF upgrade <small>Carbon-fiber finish on every module</small></label>
+          <div class="stepper">
+            <button type="button" id="cf-toggle" aria-pressed="false" style="width:auto;padding:0 16px;font-size:14px">Off</button>
+          </div>
+          <span class="each">+$10 / module</span>
+        </div>
+        <div class="btotal">
+          <div>
+            <div class="sum" id="builder-total">$0</div>
+            <div class="pledge" id="builder-pledge">of which <b>$0.00</b> funds open-source local AI</div>
+          </div>
+          <a class="btn" href="mailto:hello@tshstudios.com?subject=Stack%20order%20question">Ask about this stack</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FILES -->
+  <section id="files" style="padding-top:0">
+    <div class="wrap">
+      <div class="kicker">Print It Yourself</div>
+      <h2>Own a printer? Buy the files.</h2>
+      <p class="lede">The full Fleetframe system as STL/3MF files — the same version-locked designs we print from, with free updates as the designs improve. Personal-use license: print for your rig, as many as you need.</p>
+      <div class="split">
+        <div class="panel">
+          <h3>Full System Bundle</h3>
+          <p>Every module and cover in the system — Spark, Studio, mini, drive dock, honeycomb tops — in one pack.</p>
+          <ul>
+            <li><b>$39</b> launch price ($49 regular)</li>
+            <li>Slicing notes and the PETG settings we use</li>
+            <li>Free updates when a design rev ships</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Single Designs</h3>
+          <p>Just the piece you need, priced like it.</p>
+          <ul>
+            <li>Modules <b>$10–$15</b> each · Covers <b>$6</b></li>
+            <li>Want to sell prints of a design? Commercial print licenses from <b>$99</b> per design family</li>
+            <li>Files also on Cults3D and Thangs at launch</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM -->
+  <section id="custom" style="padding-top:0">
+    <div class="wrap">
+      <div class="kicker">Custom Work</div>
+      <h2>Your machine isn't on the list? We'll design its module.</h2>
+      <p class="lede">The system started as a custom job for our own fleet. If it has a footprint, we can rack it — or build you something that exists nowhere else.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Customized module</h3>
+          <p>An existing module, made yours: name or logo plate, accent color, adjusted fit.</p>
+          <div class="price">1.5× <small>module price</small></div>
+        </div>
+        <div class="card">
+          <h3>Bespoke device module</h3>
+          <p>A new module for a machine we don't cover yet, designed and fit-tested the same way ours were.</p>
+          <div class="price">from $249</div>
+        </div>
+        <div class="card">
+          <h3>Full custom tower</h3>
+          <p>A one-off rack for your whole setup, designed around your desk, your machines, your cables.</p>
+          <div class="price">from $399</div>
+        </div>
+      </div>
+      <p style="color:var(--muted);margin-top:22px;font-size:14.5px">Custom work starts with a $75 design consult, credited in full toward any order over $250. <a href="mailto:hello@tshstudios.com?subject=Custom%20rack%20quote">Start a custom quote →</a></p>
+    </div>
+  </section>
+
+  <!-- TSH PRODUCTS TEASER -->
+  <section id="tsh-teaser" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="kicker">Lane Two — TSH Products</div>
+      <h2>The Time Strong Health shelf lives here.</h2>
+      <p class="lede">If you arrived from <a href="https://www.timestronghealth.com">timestronghealth.com</a>, you're in the right place. This is where Time Strong Health clients, their caregivers, and partner clinics get the printed side of the practice: fitness products, clinic products, and personalized merch — made by the same hands, to the same standard.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Fitness Products</h3>
+          <p>Printed supports for home programs: the daily-living catalog, stands, holders, and practice aids that keep a program going between sessions.</p>
+          <a class="more" href="tsh-products.html#fitness">See fitness products →</a>
+        </div>
+        <div class="card">
+          <h3>Clinic Products</h3>
+          <p>Lending-shelf bundles and durable clinic gear for practices and care facilities, with volume pricing and reprint support.</p>
+          <a class="more" href="tsh-products.html#clinics">See clinic products →</a>
+        </div>
+        <div class="card">
+          <h3>Personalized Merch</h3>
+          <p>The faceted turtle, made personal: name plates, desk turtles, and gifts for clients, caregivers, and the people cheering them on.</p>
+          <a class="more" href="tsh-products.html#merch">See personalized merch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLEDGE -->
+  <section class="pledge" id="pledge">
+    <div class="wrap grid">
+      <div class="big">5%</div>
+      <div>
+        <div class="kicker">The Pledge</div>
+        <h2 style="margin-bottom:12px">Every sale funds the tools we all run on.</h2>
+        <p>Our racks exist because open-source local AI exists. So <b>5% of every sale — physical or digital — goes to open-source local AI projects</b>, especially American ones: the inference engines, interfaces, and orchestration tools our own fleet runs daily. One beneficiary a month, named in public, paid through GitHub Sponsors or OpenCollective, with the receipt posted here and on our socials. The cheap copies can't copy that without copying the margin. We can live with that.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="wrap">
+      <div class="kicker">The Studio</div>
+      <h2>Designed by an AI fleet. Proven by failed prints.</h2>
+      <div class="photo-band" style="margin-bottom:36px">
+        <figure>
+          <img src="assets/topdown.jpg" alt="Top-down view of honeycomb rack covers, with an external drive docked on the Mac Studio stack">
+          <figcaption>Honeycomb top covers and the drive dock, from above. The dock turns the top of your stack into usable space.</figcaption>
+        </figure>
+        <div>
+          <p style="color:var(--muted);margin-bottom:14px">The rack system was designed the way we think more hardware will be: a human with a problem, an AI design partner, and a pile of failed prints — two to four per part — until every module fit the machine it was made for. Then we put five DGX Sparks and two Mac Studios in them and ran production workloads on top. They held. Now we print them for your fleet.</p>
+          <p style="color:var(--muted)">The daily-living lane runs on the same loop, with a clinician's eye instead of a sysadmin's: observe the frustration, print, test in a real home, fix what the home teaches you.</p>
+        </div>
+      </div>
+      <p style="color:var(--muted);max-width:640px">Time Strong Health keeps people strong. TSH Studios prints the tools — for the hands doing the everyday work, and for the computers doing the new work. One standard across every lane: it has to earn its place, or it doesn't ship.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="kicker">Questions</div>
+      <h2>Before you ask</h2>
+      <p class="lede"></p>
+      <div class="faq">
+        <div>
+          <h3>Why PETG and not PLA?</h3>
+          <p>PLA softens and slowly creeps under sustained heat and load — exactly what a working AI machine produces, and no way to treat a tool someone relies on daily. PETG is heat-stable and tougher. PETG-CF goes further: stiffer, with a matte, machined look.</p>
+        </div>
+        <div>
+          <h3>How long until my order ships?</h3>
+          <p>Everything is printed to order — no warehouse shelf. Small orders typically print and ship within a few business days; towers and customs get a timeline in the quote before you pay anything.</p>
+        </div>
+        <div>
+          <h3>What if something doesn't fit?</h3>
+          <p>Every rack module is fit-tested against the real machine before it's listed, and every daily-living aid is tested in real hands. If what you receive doesn't fit the job it's listed for, we make it right — reprint or refund.</p>
+        </div>
+        <div>
+          <h3>Can I print and sell these myself?</h3>
+          <p>File purchases are personal-use: print freely for your own rig. Selling prints requires a commercial license (from $99 per design family) — it's how the designs stay ours and the quality stays controlled.</p>
+        </div>
+        <div>
+          <h3>Is this the fitness company?</h3>
+          <p>Same founder, sibling business. TSH Studios is the 3D printing arm of <a href="https://www.timestronghealth.com">Time Strong Health</a> — the TSH Products page here is the studio shelf for TSH clients, caregivers, and clinics. For in-home fitness and wellness services, visit timestronghealth.com.</p>
+        </div>
+        <div>
+          <h3>Where do I buy?</h3>
+          <p>The storefront opens shortly: physical products on Etsy, print files on Cults3D and Thangs. Join the launch list below and you'll be the first to know — launch pricing on the file bundle is for early buyers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="kicker">Launch List</div>
+      <h2>The store opens soon. Be first in line.</h2>
+      <p>One email when the storefront goes live, one when the first pledge donation lands. No drip campaigns, no nonsense.</p>
+      <a class="btn" href="mailto:hello@tshstudios.com?subject=Add%20me%20to%20the%20TSH%20Studios%20launch%20list">Join the launch list</a>
+      <a class="btn ghost" href="mailto:hello@tshstudios.com?subject=TSH%20Studios%20question" style="margin-left:10px">hello@tshstudios.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="flogo"><img src="assets/logo-emblem.svg" alt=""><span>© 2026 TSH Studios · A Time Strong Health company · Atlanta, GA</span></div>
+    <div>Fleetframe&trade; is a TSH Studios product line &middot; Designed with AI assistance, printed by humans who check the fit.</div>
+  </div>
+</footer>
+
+<script>
+  // Stack builder
+  var ITEMS = [
+    { id:'spark',  name:'DGX Spark Module',  note:'$39 each · $35 each at 4+', price:39, fleetAt:4, fleetPrice:35 },
+    { id:'studio', name:'Mac Studio Module', note:'$54 each', price:54 },
+    { id:'mini',   name:'Mac mini Module',   note:'$34 each', price:34 },
+    { id:'dock',   name:'Drive Dock Module', note:'$25 each', price:25 },
+    { id:'cs',     name:'Top Cover — Spark', note:'$24 each', price:24, module:false },
+    { id:'ct',     name:'Top Cover — Studio',note:'$29 each', price:29, module:false }
+  ];
+  var state = {}; ITEMS.forEach(function(i){ state[i.id]=0; });
+  var cf = false;
+
+  function rowHTML(item){
+    return '<div class="brow"><label>'+item.name+'<small>'+item.note+'</small></label>'+
+      '<div class="stepper"><button type="button" data-act="dec" data-id="'+item.id+'">−</button>'+
+      '<output id="qty-'+item.id+'">0</output>'+
+      '<button type="button" data-act="inc" data-id="'+item.id+'">+</button></div>'+
+      '<span class="each" id="each-'+item.id+'"></span></div>';
+  }
+  document.getElementById('builder-rows').innerHTML = ITEMS.map(rowHTML).join('');
+
+  function money(n){ return '$' + n.toLocaleString('en-US'); }
+
+  function render(){
+    var total = 0, modules = 0;
+    ITEMS.forEach(function(i){
+      var q = state[i.id];
+      var unit = (i.fleetAt && q >= i.fleetAt) ? i.fleetPrice : i.price;
+      total += q * unit;
+      if (i.module !== false && i.id !== 'dock') modules += q;
+      document.getElementById('qty-'+i.id).textContent = q;
+      document.getElementById('each-'+i.id).textContent =
+        q ? (money(unit) + ' ea · ' + money(q*unit)) : '';
+    });
+    if (cf) total += modules * 10;
+    document.getElementById('builder-total').textContent = money(total);
+    document.getElementById('builder-pledge').innerHTML =
+      'of which <b>$' + (total*0.05).toFixed(2) + '</b> funds open-source local AI';
+  }
+
+  document.getElementById('builder').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    if (b.id === 'cf-toggle'){
+      cf = !cf;
+      b.textContent = cf ? 'On' : 'Off';
+      b.setAttribute('aria-pressed', cf);
+      b.style.borderColor = cf ? 'var(--orange)' : '';
+      b.style.color = cf ? 'var(--orange)' : '';
+      render(); return;
+    }
+    var id = b.getAttribute('data-id'); if(!id) return;
+    state[id] += (b.getAttribute('data-act') === 'inc') ? 1 : -1;
+    if (state[id] < 0) state[id] = 0;
+    if (state[id] > 20) state[id] = 20;
+    render();
+  });
+  render();
+</script>
+
+</body>
+</html>
