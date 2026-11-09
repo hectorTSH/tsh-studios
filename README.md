@@ -8,13 +8,18 @@ products, personalized merch). Logo SVGs and product photos in `assets/`.
 
 ## Live deployment (2026-11-08)
 
-Deployed by Merlin via the Vercel connector — project **tsh-studios**
-(prj_YudMMYFhTuHJyOkZm9K5fv0kaVUQ) in Hector's Vercel account, production:
-**https://tsh-studios.vercel.app** (no custom domain yet, by Hector's call).
-Redeploy = upload changed files and create a new deployment on the same
-project. Note: the connector passes file contents as command arguments, so
-keep individual files under ~90 KB (the product photos are web-compressed
-for this reason; full-res originals live in Hector's photo files).
+Project **tsh-studios** (prj_YudMMYFhTuHJyOkZm9K5fv0kaVUQ) in Hector's
+Vercel account, production: **https://tsh-studios.vercel.app** (no custom
+domain yet, by Hector's call).
+
+The project is **git-connected to this repository** (hectorTSH/tsh-studios,
+production branch `main`): every push to main auto-deploys to production.
+History: first deployed by Merlin via connector file uploads, then Hector
+had the code moved to GitHub and the project linked the same evening.
+Note: Merlin's GitHub connection pushes text files only and passes file
+contents as command arguments, so keep individual text files under ~90 KB
+(the product photos are web-compressed; full-res originals live in Hector's
+photo files; photos reached the repo via a one-time web upload).
 
 ## Attach tshstudios.com (when Hector buys it at Porkbun)
 
