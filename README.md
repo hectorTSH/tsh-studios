@@ -40,17 +40,16 @@ photo files; photos reached the repo via a one-time web upload).
 
 ## Notes
 
-- Contact buttons use `hello@tshstudios.com` — live since 2026-11-08
-  (Google Workspace for tshstudios.com is set up and Gmail is activated).
+- Contact buttons use `hector@timestronghealth.com` — repointed 2026-11-24
+  (`hello@tshstudios.com` died with the Google Workspace cancellation, 2026-11-22).
 - Storefront CTAs are launch-list mode until the Etsy shop opens; swap the
   hero/contact buttons to the Etsy URL at launch.
-- The rack line is branded **Fleetframe** (Hector's pick, 2026-11-08, after
+- **Fleetframe DROPPED as a product idea 2026-11-24 (Hector, direct).**
+  The rack line was branded Fleetframe (his pick, 2026-11-08, after
   RackStack / ClusterCrate / HexStack / Stackforge / Modulair / Hiveframe all
-  failed collision checks). Known neighbors, different industries: a
-  truck-banner frame product also called FleetFrame, and an acquired Dutch
-  telematics firm. No use in 3D printing / computer hardware; fleetframe.com
-  is a parked for-sale domain (not needed — the line lives on tshstudios.com).
-  Social handles were not verifiable by search; confirm at account creation,
-  fallbacks @fleetframeracks / @getfleetframe.
+  failed collision checks). Lane Three, the file bundle, custom rack work, and
+  the stack builder were stripped from the live site 2026-11-24; masters stay
+  archived, nothing deleted from the repo. Do not re-add Fleetframe copy
+  without Hector's word.
 - If a real waitlist/order form is wanted later, Supabase is the planned
   backend; v1 deliberately has none.
